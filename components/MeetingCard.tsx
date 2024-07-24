@@ -6,7 +6,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { avatarImages } from "@/constants";
 import { useToast } from "./ui/use-toast";
-
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { Key } from "react";
+``
 interface MeetingCardProps {
   title: string;
   date: string;
@@ -43,7 +45,7 @@ const MeetingCard = ({
       </article>
       <article className={cn("flex justify-center relative", {})}>
         <div className="relative flex w-full max-sm:hidden">
-          {avatarImages.map((img, index) => (
+          {avatarImages.map((img: string | StaticImport, index: Key | null | undefined) => (
             <Image
               key={index}
               src={img}
